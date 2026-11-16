@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkUp - Live Chat & Call</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- উপরের হেডার অংশ -->
+    <div class="chat-header">
+      <div class="user-info">
+        <div class="avatar">L</div>
+        <div>
+          <h3>LinkUp</h3>
+          <span class="status">online</span>
+        </div>
+      </div>
+      <div class="header-icons">
+        <button id="videoCallBtn" title="Video Call">📹</button>
+        <button id="audioCallBtn" title="Audio Call">📞</button>
+        <button id="menuBtn" title="More Options">⋮</button>
+      </div>
+    </div>
+
+    <!-- ড্রপডাউন মেনু (থ্রি-ডট অপশন) -->
+    <div id="dropdownMenu" class="dropdown-menu hidden">
+      <div class="menu-item" onclick="alert('View Contact clicked')">View contact</div>
+      <div class="menu-item" onclick="alert('Media, links, and docs clicked')">Media, links, and docs</div>
+      <div class="menu-item" onclick="alert('Search clicked')">Search</div>
+      <div class="menu-item" onclick="alert('Mute notifications clicked')">Mute notifications</div>
+    </div>
+
+    <!-- মেসেজ দেখানোর জায়গা -->
+    <div class="chat-box" id="chatBox">
+      <div class="message received">হ্যালো! LinkUp অ্যাপে স্বাগতম। 👋</div>
+    </div>
+
+    <!-- অ্যাটাচমেন্ট পপআপ মেনু (Document, Gallery ইত্যাদি) -->
+    <div id="attachPopup" class="attach-popup hidden">
+      <div class="attach-grid">
+        <div class="attach-item" onclick="selectAttachment('Document')">📄 <span>Document</span></div>
+        <div class="attach-item" onclick="selectAttachment('Gallery')">🖼️ <span>Gallery</span></div>
+        <div class="attach-item" onclick="selectAttachment('Audio')">🎧 <span>Audio</span></div>
+        <div class="attach-item" onclick="selectAttachment('Location')">📍 <span>Location</span></div>
+        <div class="attach-item" onclick="selectAttachment('Contact')">👤 <span>Contact</span></div>
+        <div class="attach-item" onclick="selectAttachment('Poll')">📊 <span>Poll</span></div>
+      </div>
+    </div>
+
+    <!-- লুকানো ফাইল ইনপুট -->
+    <input type="file" id="fileInput" accept="image/*,video/*,.pdf,.doc" style="display: none;">
+
+    <!-- মেসেজ টাইপ ও সেন্ড করার অংশ -->
+    <div class="chat-input-area">
+      <div class="input-wrapper">
+        <button id="emojiBtn" title="Emoji">😊</button>
+        <input type="text" id="messageInput" placeholder="Message" autocomplete="off">
+        <button id="attachBtn" title="Attach">📎</button>
+        <button id="cameraBtn" title="Camera">📷</button>
+      </div>
+      <!-- ভয়েস বা সেন্ড বাটন (ডাইনামিক পাল্টাবে) -->
+      <button id="actionBtn" class="mic-send-btn" title="Voice Message">🎙️</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
